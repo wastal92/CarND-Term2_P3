@@ -80,7 +80,7 @@ void ParticleFilter::prediction(double delta_t, double std_pos[], double velocit
         double noise_theta = ntheta(gen);
 
         //when yaw rate = 0
-        if (yaw_rate<0.0001){
+        if (abs(yaw_rate)<0.0001){
             particles[i].x = x_0 + velocity * delta_t * cos(theta_0) + noise_x;
             particles[i].y = y_0 + velocity * delta_t * sin(theta_0) + noise_y;
             particles[i].theta = theta_0 + noise_theta;
